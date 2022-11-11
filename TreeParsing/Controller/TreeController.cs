@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using TreeParsing.Interfaces;
+using TreeParsing.Classes;
 
 namespace TreeParsing.Controller
 {
@@ -21,16 +22,36 @@ namespace TreeParsing.Controller
             return Root.AddNode(node);
         }
 
+        public void ProcessInput(string input)
+        {
+            ClearRoot();
+            List<int> list = InputParser.GetIntegerList(input);
+
+            list = ListValidator.GetValidList(list);
+                if (list.Count > 0)
+            {
+                Root = new BinaryTreeNode(list[0]);
+
+                for (int i = 1; i < list.Count; i++)
+                    AddNode(new BinaryTreeNode(list[i]));
+            }
+        }
+
         public List<int> GetPostOrderTraversal()
         {
             List<int> result = new List<int>();
 
-            if(_postOrderTraversal != null && Root != null)
+            if (_postOrderTraversal != null && Root != null)
             {
                 result = _postOrderTraversal.Run(Root);
             }
 
             return result;
+        }
+
+        public void ClearRoot()
+        {
+            Root = null;
         }
     }
 }

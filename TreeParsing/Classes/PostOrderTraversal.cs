@@ -5,7 +5,7 @@ using TreeParsing.Interfaces;
 
 namespace TreeParsing.Classes
 {
-    internal class PostOrderTraversal : TreeTraversal
+    public class PostOrderTraversal : TreeTraversal
     {
         private List<int> _traversal;
 
@@ -23,7 +23,8 @@ namespace TreeParsing.Classes
 
             foreach(TreeNode child in children)
             {
-                Traverse(child);
+                if(child != null)
+                    Traverse(child);
             }
 
             _traversal.Add(node.Value);

@@ -16,7 +16,7 @@ namespace TreeParsing.Classes
         private int _value;
         public int Value { get { return _value; } set { _value = value; } }
 
-        public BinaryTreeNode(BinaryTreeNode left, BinaryTreeNode right, int value)
+        public BinaryTreeNode(int value, BinaryTreeNode left = null, BinaryTreeNode right = null)
         {
             _children = new List<TreeNode>();
             _children.Add(left);
