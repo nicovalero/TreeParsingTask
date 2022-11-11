@@ -5,6 +5,9 @@ using TreeParsing.Interfaces;
 
 namespace TreeParsing.Classes
 {
+    /// <summary>
+    /// Class <c>BinaryTreeNode</c> defines a Node with two possible children only, and an integer value.
+    /// </summary>
     public class BinaryTreeNode : TreeNode
     {
         private const int LEFTPOSITION = 0;
@@ -24,6 +27,10 @@ namespace TreeParsing.Classes
             _value = value;
         }
 
+        /// <summary>
+        /// Method <c>GetChildren</c>
+        /// </summary>
+        /// <returns>The immediate children of this node</returns>
         public List<TreeNode> GetChildren()
         {
             return _children;
@@ -31,8 +38,8 @@ namespace TreeParsing.Classes
 
         ///<summary>
         ///Method <c>AddNode</c> adds the given node where possible
-        ///Returns false if node already exists or is not a BinaryTreeNode
         ///</summary
+        /// <returns>Returns false if node already exists or is not a BinaryTreeNode</returns>
         public virtual bool AddNode(TreeNode node)
         {
             if (node is BinaryTreeNode)
