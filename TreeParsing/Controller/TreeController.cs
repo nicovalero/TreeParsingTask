@@ -19,7 +19,13 @@ namespace TreeParsing.Controller
 
         public bool AddNode(TreeNode node)
         {
-            return Root.AddNode(node);
+            if (Root == null)
+            {
+                Root = node;
+                return true;
+            }
+            else
+                return Root.AddNode(node);
         }
 
         public void ProcessInput(string input)
@@ -28,7 +34,7 @@ namespace TreeParsing.Controller
             List<int> list = InputParser.GetIntegerList(input);
 
             list = ListValidator.GetValidList(list);
-                if (list.Count > 0)
+            if (list.Count > 0)
             {
                 Root = new BinaryTreeNode(list[0]);
 

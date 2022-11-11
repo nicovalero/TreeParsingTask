@@ -8,26 +8,30 @@ namespace TreeParsing.Classes
     public class PostOrderTraversal : TreeTraversal
     {
         private List<int> _traversal;
+        public List<int> Traversal { get { return _traversal; } set { _traversal = value; } }
 
         public List<int> Run(TreeNode root)
         {
-            _traversal = new List<int>();
+            Traversal = new List<int>();
 
             Traverse(root);
 
-            return _traversal;
+            return Traversal;
         }
         public void Traverse(TreeNode node)
         {
-            List<TreeNode> children = node.GetChildren();
-
-            foreach(TreeNode child in children)
+            if (node != null)
             {
-                if(child != null)
-                    Traverse(child);
-            }
+                List<TreeNode> children = node.GetChildren();
 
-            _traversal.Add(node.Value);
+                foreach (TreeNode child in children)
+                {
+                    if (child != null)
+                        Traverse(child);
+                }
+
+                Traversal.Add(node.Value);
+            }
         }
     }
 }

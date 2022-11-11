@@ -5,7 +5,7 @@ using TreeParsing.Interfaces;
 
 namespace TreeParsing.Classes
 {
-    internal class BinaryTreeNode : TreeNode
+    public class BinaryTreeNode : TreeNode
     {
         private const int LEFTPOSITION = 0;
         private const int RIGHTPOSITION = 1;
@@ -33,13 +33,10 @@ namespace TreeParsing.Classes
         ///Method <c>AddNode</c> adds the given node where possible
         ///Returns false if node already exists or is not a BinaryTreeNode
         ///</summary
-        public bool AddNode(TreeNode node)
+        public virtual bool AddNode(TreeNode node)
         {
             if (node is BinaryTreeNode)
             {
-                if (node == null)
-                    return true;
-
                 if (this.Value == node.Value)
                     return false;
 
